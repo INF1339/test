@@ -1,0 +1,26 @@
+ <!DOCTYPE html>
+ <html>
+<head>
+      <title>WIKIDOTAPI Test</title>
+      <script type="text/javascript" src="https://jsapi.wikidot.com/local--code/js/4"></script>
+      <script>
+          /* Returning data to a variable */
+            var data1;
+            data1 = jsAPI("pages.select", {"site": "computational-thinking"}, "rwhqQ1ejJknarL6oB1gnHlrZ3d9ifOBR");
+          console.log(data1)
+
+          /* Requesting in asynchronous mode and returning data through a callback function */
+          jsAPI("pages.select", {"site": "computational-thinking"}, "rwhqQ1ejJknarL6oB1gnHlrZ3d9ifOBR", function(a){ data=a; console.log(a) });
+          
+          /* Returning data to a variable */
+          var data2; //Define the variable data
+          data2 = jsAPI("pages.get_one", {"site": "computational-thinking", "page": "concept:decoupling"}, "rwhqQ1ejJknarL6oB1gnHlrZ3d9ifOBR");
+ 
+          document.write(data2["html"]); //writing the data returned in an associative array
+          console.log(data2)
+      </script>
+  </head>
+  <body>
+      <button type="button" onclick="init()">Initialize</button>
+ </body>
+ </html>
